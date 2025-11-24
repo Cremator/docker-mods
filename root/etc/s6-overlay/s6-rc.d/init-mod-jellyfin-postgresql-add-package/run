@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+
+# This is the init file used for adding os or pip packages to install lists.
+# It takes advantage of the built-in init-mods-package-install init script that comes with the baseimages.
+# If using this, we need to make sure we set this init as a dependency of init-mods-package-install so this one runs first
+
+apt-get update && \
+    apt-get install -y wget ca-certificates gnupg lsb-release && \
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /usr/share/keyrings/postgresql-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/postgresql-keyring.gpg] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list && \
+    apt-get update && \
+    apt-get install -y postgresql-client-18 xmlstarlet && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
