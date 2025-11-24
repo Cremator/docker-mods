@@ -24,4 +24,4 @@ COPY --from=buildstage /src/docker/entrypoint.sh /jellyfin-pgsql/entrypoint.sh
 COPY --from=buildstage /src/docker/database.xml /jellyfin-pgsql/database.xml
 COPY --from=buildstage /src/docker/jellyfindb.load /jellyfin-pgsql/jellyfindb.load
 COPY --from=buildstage /src/docker/jellyfin.PgsqlMigrator.dll /jellyfin-pgsql/jellyfin.PgsqlMigrator.dll
-RUN chmod +x /jellyfin-pgsql/entrypoint.sh
+#RUN chmod +x /jellyfin-pgsql/entrypoint.sh
