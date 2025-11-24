@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS buildstage
 
 RUN \
   echo "**** git clone repo ****" && \
-  git clone https://github.com/JPVenson/Jellyfin.Pgsql.git /src
+  git clone https://github.com/Cremator/Jellyfin.Pgsql.git /src
 
 WORKDIR /src
 
