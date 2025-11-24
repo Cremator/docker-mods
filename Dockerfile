@@ -9,12 +9,6 @@ RUN \
 
 WORKDIR /src
 
-# Copy project files
-COPY jellyfin.ruleset .
-COPY Jellyfin.Plugin.Pgsql.sln .
-COPY build.yaml .
-COPY Jellyfin.Plugin.Pgsql/ ./Jellyfin.Plugin.Pgsql/
-
 # Restore and publish
 RUN dotnet restore Jellyfin.Plugin.Pgsql.sln
 RUN dotnet publish Jellyfin.Plugin.Pgsql.sln -c Release --no-restore -o /app/publish
